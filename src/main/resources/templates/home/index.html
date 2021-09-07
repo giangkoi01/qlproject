@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<span th:text="${message}"></span>
+	
+	<div th:replace=@{common/header.html}></div>
+	
+	<div th:insert=@{common/footer.html}></div>
+	
+	<ul th:each="obj:${list}" th:object=${obj}>
+	<li th:text=*{name}></li>
+	<li th:text=*{price}></li>
+	<li th:text=*{image}></li>
+	<li><img alt="" th:src=*{image}></li>
+	<li th:text=*{#dates.format(createDate,'dd-MM-yyyy')}></li>
+	<li th:text=*{avaiable}></li>
+	</ul>
+</body>
+</html>
